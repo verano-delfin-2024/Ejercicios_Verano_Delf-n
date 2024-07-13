@@ -1,12 +1,13 @@
   #include <iostream>
   #include <iomanip>
   #include <cmath>
-
+  #include "training_samples.h"
 
   using namespace std;
 
   int const MAX = 100;
 
+/*
   double sigmoidFunction(double x){
     return (1/(1 + exp(-x)));
   }
@@ -14,55 +15,9 @@
   int generateRandomNumber(int min, int max) {
     return min + rand() % (max - min + 1);
   }
+  */
 
-  struct training_samples{
-    int samplesNumber, inputSize, outputSize;
-    double inputs[MAX][MAX], outputs[MAX][MAX];
-    training_samples();
-    training_samples(int samples, int inputs, int outputs);
-    ostream& show(ostream& out);
-    istream& get(istream& in);
-  };
-
-  training_samples::training_samples()
-    :samplesNumber(0){
-    }
-
-  training_samples::training_samples(
-    int sn, int is, int os
-  ):samplesNumber(sn), inputSize(is), outputSize(os){
-
-  }
-
-  istream& training_samples::get(istream& in){
-    in >> samplesNumber >> inputSize >> outputSize;
-    for (int sn = 0; sn < samplesNumber; ++sn){
-      for(int is = 0; is < inputSize; ++is){
-        in >> inputs[sn][is];
-      }
-      for(int os = 0; os < outputSize; ++os){
-        in >> outputs[sn][os];
-      }
-    }
-    return in;
-  }
-
-  ostream& training_samples::show(ostream& out){
-    out << "\n TRAINING DATA \n";
-    out << "\nNumber of samples: " << samplesNumber;
-    out << "\nInputs Size: " << inputSize;
-    out << "\nOutputs Size: " << outputSize << "\n\n";
-
-    for (int sn = 0; sn < samplesNumber; ++sn){
-      for(int is = 0; is < inputSize; ++is){
-        out << " Input [" << inputs[sn][is] << "]\t" ;
-      }
-      for(int os = 0; os < outputSize; ++os){
-        out << " Output [" << outputs[sn][os] << "]\n";
-      }
-    }
-    return out;
-  }
+  /*
 
   struct backpropagation_neural_network{
 
@@ -270,14 +225,18 @@
         }
       }
     }
-    cout << "\nTotal Epochs specified in the code = " << max_epoch << "\n";
+    cerr << "\nTotal Epochs specified in the code = " << max_epoch << "\n";
     return 0;
   }
-
+*/
 
   int main(){
+    
+    training_samples trsm;
+    trsm.get(cin);
+    trsm.show(cout);
 
-    training_samples ts;
+    /*training_samples ts;
     ts.get(cin);
     ts.show(cout);
     backpropagation_neural_network bnn (
@@ -285,11 +244,9 @@
     );
     bnn.setRandomWeights();
     bnn.show(cout);
-    int mistakes = bnn.backpropagate(ts,0.5,1000);
+    int mistakes = bnn.backpropagate(ts,0.5,100);
     cout << "Mistakes: " << mistakes << "\n\n";
     cout << "Definitive Backpropagate Neural Network \n\n";
-    bnn.show(cout);
- 
-    
+    bnn.show(cout);*/ 
   return 0;
   }
