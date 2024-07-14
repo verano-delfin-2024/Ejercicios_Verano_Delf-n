@@ -1,14 +1,17 @@
 #pragma once
 #include <iostream>
+#include <vector>
 #include "global_things.h"
 
 using namespace std;
 
 struct training_samples{
-    int inputs_quantity, outputs_quantity, num_samples;
-    double inputs[MAX][MAX+1], outputs[MAX][MAX+1];
+    int num_inputs, num_outputs, num_samples;
+
+    vector<vector<double>> inputs,outputs;
+
     training_samples();
-    training_samples(int num_samples, int inputs, int outputs);
+    training_samples(int num_samples, int num_inputs, int num_outputs);
     ostream& show(ostream& out);
     istream& get(istream& in);
 };
