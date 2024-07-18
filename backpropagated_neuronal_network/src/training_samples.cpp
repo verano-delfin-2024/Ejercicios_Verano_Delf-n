@@ -1,7 +1,7 @@
 #include <iostream>
-#include "training_samples.h"
+#include "../include/training_samples.h"
 
-using namespace std;
+
 
 
 training_samples::training_samples()
@@ -16,8 +16,8 @@ training_samples::training_samples(
 istream& training_samples::get(istream& in){
 
     cin >> num_samples >> num_inputs >> num_outputs;
-    inputs.resize(num_samples, std::vector<double>(num_inputs));
-    outputs.resize(num_samples, std::vector<double>(num_outputs));
+    inputs.resize(num_samples, vector<double>(num_inputs));
+    outputs.resize(num_samples, vector<double>(num_outputs));
     for(int sample = 0; sample < num_samples; ++sample ){
         for(int input = 0; input < num_inputs; ++input){
             cin >> inputs[sample][input];

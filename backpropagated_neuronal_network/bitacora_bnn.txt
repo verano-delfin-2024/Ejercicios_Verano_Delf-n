@@ -1,0 +1,16 @@
+
+17/07/2024
+
+Antes de ingresar datos en un vector o imprimirlos, no se te olvide inicializarlos. Los definiste, pero no les diste un tamaño. Usa nuevamente la función resize.
+
+Ej:
+input_layer.resize(input_layer_size);
+	hidden_layer.resize(hidden_layer_size);
+	output_layer.resize(output_layer_size);
+	initial_cluster.resize(hidden_layer_size, vector<double>(input_layer_size + 1));
+	final_cluster.resize(output_layer_size, vector<double>(hidden_layer_size + 1));
+
+¡OJO CON LAS OPERACIONES!
+
+La sintaxis importa:
+ =* o =+ no es lo mismo que: *= o +=
