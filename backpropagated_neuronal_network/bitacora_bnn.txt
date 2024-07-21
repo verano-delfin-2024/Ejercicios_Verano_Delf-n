@@ -14,3 +14,19 @@ input_layer.resize(input_layer_size);
 
 La sintaxis importa:
  =* o =+ no es lo mismo que: *= o +=
+
+ 18/07/2024
+
+ Tener homogeneidad todos los float por double o vicerversa.
+
+ ¿Cómo convertir la clase bnn en una clase template?
+ ¿Definir float, double, o long double a conveniencia en esta clase?
+ Usar el std:: en los archivos header (principio de organización).
+ No es buena idea crear identificadores globales que puedan sobreescribir el significado de los estándares.
+
+ :: --> se llama operador de resolución de ámbito.
+
+ Método estático dentro de la clase --> generar una función global dentro del ámbito de la clase, en particular no haría falta crear un objeto para invocar ese método.
+
+El problema con los paths, puede que al trasladar el directorio con los archivos (.cpp y .h) no se tengan los mismos accesos. Ej: ¿Qué tal si en un entorno GNU/Linux la carpeta include para un usuario en específico solo tiene el permiso de lectura? El usuario no puede modificar ese directorio o carpeta (include).
+
